@@ -80,5 +80,10 @@ public class ClaseProductos {
         }
         return resultp;
     }
+    
+    public ArrayList<Producto> ObtPro()
+    {
+        return this.listProd;
+    }
 
 }
