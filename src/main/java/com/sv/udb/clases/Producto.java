@@ -13,7 +13,7 @@ public class Producto {
     
     private String nombre;
     private double precio;
-    private int stock;
+    private double stock;
     private int minimo;
     private String fecha;
 
@@ -27,7 +27,7 @@ public class Producto {
      * @param stock
      * @param minimo
      */
-    public Producto(String nombre, double precio, int stock, int minimo, String fecha) {
+    public Producto(String nombre, double precio, double stock, int minimo, String fecha) {
         this.nombre = nombre;
         this.precio = precio;
         this.minimo = minimo;
@@ -66,16 +66,18 @@ public class Producto {
         this.minimo = minimo;
     }
 
-    public int getStock() {
+    public double getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(double stock) {
         this.stock = stock;
     }
-    
+
     @Override
     public String toString() {
-        return this.nombre;
+        return nombre;
     }
+    
+    
 }

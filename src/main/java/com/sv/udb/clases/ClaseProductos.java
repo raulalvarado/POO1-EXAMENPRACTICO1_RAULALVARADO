@@ -23,7 +23,7 @@ public class ClaseProductos {
         this.listProd = new ArrayList<>();
     }
 
-    public void agregar(String name, double price, int stock, int minimun, String fecha) {
+    public void agregar(String name, double price, double stock, int minimun, String fecha) {
         this.listProd.add(new Producto(name, price, stock, minimun, fecha));
     }
 

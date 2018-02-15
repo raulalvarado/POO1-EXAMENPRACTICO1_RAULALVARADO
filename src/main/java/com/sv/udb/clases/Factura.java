@@ -12,25 +12,25 @@ import java.util.List;
  *
  * @author Dante
  */
-public class Categoria {
-    private String categ;
+public class Factura {
+    private int numFact;
     private List<Producto> lstPro;
 
-    public Categoria() {
+    public Factura() {
         this.lstPro = new ArrayList<>();
     }
 
-    public Categoria(String categ) {
-        this.categ = categ;
+    public Factura(int categ) {
+        this.numFact = categ;
         this.lstPro = new ArrayList<>();
     }
 
-    public String getCateg() {
-        return categ;
+    public int getCateg() {
+        return numFact;
     }
 
-    public void setCateg(String categ) {
-        this.categ = categ;
+    public void setCateg(int categ) {
+        this.numFact = categ;
     }
 
     public List<Producto> getLstPro() {
@@ -43,8 +43,10 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return categ;
+        return  numFact+"";
     }
+
+    
     
     
 }
