@@ -326,13 +326,15 @@ public class FrameProductos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbFacturaB, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbFacturaB, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnVerPro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnVerPro, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -493,7 +495,7 @@ public class FrameProductos extends javax.swing.JFrame {
         try
         {
             prod.agregar(n, p,s,m,f);
-            JOptionPane.showMessageDialog(this, "Registrado"+""+s);
+            JOptionPane.showMessageDialog(this, "Registrado");
             limpiar();
             LlenarcmbPro();
             
@@ -575,9 +577,6 @@ public class FrameProductos extends javax.swing.JFrame {
             Producto objePro = (Producto)this.cmbProducto.getSelectedItem();
             
             
-            
-            JOptionPane.showMessageDialog(this, objePro.getStock());
-            
             if(this.cc.ValExists(cc.stockCompare(objePro), Double.parseDouble(txtCantidad.getText())))
             {
             if(this.cc.AddProFact(objeFact, objePro))
@@ -591,7 +590,7 @@ public class FrameProductos extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "Las existencias actuales del producto no cumplen con la cantidad deseada."+objePro.getStock());
+                JOptionPane.showMessageDialog(this, "Las existencias actuales del producto no cumplen con la cantidad deseada.");
             }
         }
         catch(Exception ex)
@@ -604,11 +603,11 @@ public class FrameProductos extends javax.swing.JFrame {
         Factura tempCat = (Factura)this.cmbFacturaB.getSelectedItem();
         DefaultListModel<Producto> modePro = new DefaultListModel<>();
         double total=0;
+        int cantidad=Integer.parseInt(txtCantidad.getText());
         for(Producto temp : tempCat.getLstPro())
         {
             modePro.addElement(temp);
-            total=total+temp.getPrecio();
-            
+            total=total+temp.getPrecio()*cantidad;
         }
         String totP=Double.toString(total);
         txtTotal.setText(totP);

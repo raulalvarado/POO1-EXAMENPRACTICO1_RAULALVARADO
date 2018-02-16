@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author Dante
+ * @author Raul Alvarado
  */
 public class ClaseFactura {
     List<Factura> lstcat;
@@ -71,7 +71,7 @@ public class ClaseFactura {
         
         try
         {
-            if(pro<exist)
+            if(pro>exist)
             {
                 resp= true;
             }

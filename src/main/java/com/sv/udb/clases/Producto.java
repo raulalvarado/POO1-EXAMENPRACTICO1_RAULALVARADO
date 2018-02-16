@@ -26,10 +26,12 @@ public class Producto {
      * @param precio
      * @param stock
      * @param minimo
+     * @param fecha
      */
     public Producto(String nombre, double precio, double stock, int minimo, String fecha) {
         this.nombre = nombre;
         this.precio = precio;
+        this.stock=stock;
         this.minimo = minimo;
         this.fecha=fecha;
     }

@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  *
- * @author Estudiante
+ * @author Raul Alvarado
  */
 public class ClaseProductos {
 
